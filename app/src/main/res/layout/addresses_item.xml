@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:background="@drawable/shapeeee"
+        android:layout_margin="@dimen/_10sdp"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/circle_colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/location"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_10sdp"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_toEndOf="@id/circle_colored"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_toStartOf="@+id/delete"
+            >
+
+            <com.example.aldokana.MyTextViewCairo
+                android:id="@+id/noti_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textSize="@dimen/_14ssp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:text="testtttttttttttt"
+                android:layout_gravity="center"
+                tools:ignore="RtlCompat"
+                />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_12ssp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorTextHint"
+                        android:text="@string/name"
+                        tools:ignore="RtlCompat" />
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:id="@+id/address_name"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_12ssp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorTextHint"
+                        android:text="ahmed"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        tools:ignore="RtlCompat" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_12ssp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorTextHint"
+                        android:text="@string/phoe_num"
+                        tools:ignore="RtlCompat" />
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:id="@+id/address_mobile"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_12ssp"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorTextHint"
+                        android:text="00000000000"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        tools:ignore="RtlCompat" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:src="@drawable/delete"/>
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/relativeLayout1"
+    android:background="@drawable/dddddd"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginStart="@dimen/_65sdp"
+    android:layout_marginEnd="@dimen/_65sdp"
+    android:paddingStart="@dimen/_15sdp"
+    android:paddingEnd="@dimen/_15sdp"
+    android:paddingTop="@dimen/_10sdp"
+    android:paddingBottom="@dimen/_10sdp">
+
+    <com.example.aldokana.MyTextViewCairo
+        android:layout_centerVertical="true"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/sadsad"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:text="@string/succ"
+        android:textSize="@dimen/_12ssp"
+        android:maxLines="1"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/white">
+    </com.example.aldokana.MyTextViewCairo>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layoutDirection="ltr"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_baseline_done_all_24aa"
+        android:layout_toEndOf="@id/sadsad"
+        android:layout_margin="5dip"
+        android:id="@+id/imageView1">
+    </androidx.appcompat.widget.AppCompatImageView>
+
+
+</RelativeLayout>

@@ -1,0 +1,141 @@
+package com.example.aldokana.viewModels;
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.databinding.ObservableField;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModel;
+
+import com.example.aldokana.Fragments.OffersFragment;
+import com.example.aldokana.Model.BasketItemsResponse;
+import com.example.aldokana.Model.NotificationResponse;
+import com.example.aldokana.Model.OffersResponse;
+import com.example.aldokana.Model.ProductsResponse;
+import com.example.aldokana.Network.NetworkUtil;
+import com.example.aldokana.R;
+import com.example.aldokana.Utils.Constant;
+import com.example.aldokana.Utils.Preferences;
+
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
+import rx.subscriptions.CompositeSubscription;
+
+public class OffersFragmentViewModel extends ViewModel {
+    OffersFragment fragment;
+    Activity activity;
+    AlertDialog alertDialog;
+    String Token;
+    Preferences preferences;
+    private CompositeSubscription mSubscriptions = new CompositeSubscription();
+    public ObservableField<String> notificationsNum = new ObservableField<>("0");
+    public ObservableField<String> basket_counter = new ObservableField<>("0");
+    public ObservableField<String> basket_money = new ObservableField<>("0");
+    ProductsResponse productsResponse2;
+    BasketItemsResponse basketItemsResponse2;
+
+    public OffersFragmentViewModel(OffersFragment fragment) {
+        this.fragment = fragment;
+        activity = fragment.getActivity();
+
+        final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(activity,R.style.SheetDialog);
+        alertDialog = builder.create();
+
+        Token = preferences.GetToken(activity);
+        if (Token.equals("visitor")){
+            GetOffers();
+        }else {
+            Token = preferences.GetToken(activity);
+            GetNotifications();
+        }
+        //GetOffers();
+    }
+
+    private void GetNotifications() {
+        showLoadingDialog(activity);
+        mSubscriptions.add(NetworkUtil.getRetrofitByToken(Token)
+                .GetNotification()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponse, this::handleError));
+    }
+
+    private void handleResponse(NotificationResponse notificationResponse) {
+        notificationsNum.set(String.valueOf(notificationResponse.getData().getNotifications().size()));
+        GetOffers();
+    }
+
+    private void handleError(Throwable throwable) {
+        Constant.handleErrors2(throwable,activity);
+    }
+
+    public void GetOffers() {
+        if (alertDialog.isShowing()){}else {
+            showLoadingDialog(activity);
+        }
+        mSubscriptions.add(NetworkUtil.getRetrofitNoHeader()
+                .GetOffers()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponseOffers, this::handleErrorOffers));
+    }
+
+    private void handleResponseOffers(ProductsResponse productsResponse) {
+        //alertDialog.dismiss();
+        if (Token.equals("visitor")){
+            alertDialog.dismiss();
+            fragment.initRecycler2(productsResponse);
+        }else {
+            productsResponse2 = productsResponse;
+            GetBasketItems();
+        }
+    }
+
+    private void handleErrorOffers(Throwable throwable) {
+        alertDialog.dismiss();
+        Constant.handleErrors2(throwable,activity);
+    }
+
+    public void showLoadingDialog(Context activity) {
+        LayoutInflater layoutInflater = LayoutInflater.from(activity);
+        View view = layoutInflater.inflate(R.layout.loading, null, false);
+        final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(activity,R.style.SheetDialog);
+        builder.setView(view);
+        alertDialog = builder.create();
+        alertDialog.show();
+        alertDialog.setCancelable(false);
+    }
+
+    public void GetBasketItems() {
+        if (alertDialog.isShowing()){}else {
+            showLoadingDialog(activity);
+        }
+        mSubscriptions.add(NetworkUtil.getRetrofitByToken(Token)
+                .GetUserBasket()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleResponseBasketItems, this::handleErrorBasketItems));
+    }
+
+    private void handleResponseBasketItems(BasketItemsResponse basketItemsResponse) {
+        alertDialog.dismiss();
+        basketItemsResponse2=basketItemsResponse;
+        fragment.initRecycler(productsResponse2,basketItemsResponse);
+        double money = 0.0;
+        basket_counter.set(String.valueOf(basketItemsResponse.getData().getBasket_items().size()));
+        for (int i=0;i<basketItemsResponse.getData().getBasket_items().size();i++){
+            money+=Double.parseDouble(basketItemsResponse.getData().getBasket_items().get(i).getTotal_cost());
+        }
+        basket_money.set(String.valueOf(money));
+    }
+
+    private void handleErrorBasketItems(Throwable throwable) {
+        alertDialog.dismiss();
+        Constant.handleErrors2(throwable,activity);
+    }
+
+
+}

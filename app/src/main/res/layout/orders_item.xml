@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_120sdp"
+        android:background="@drawable/shape_rounded_white"
+        android:layout_margin="@dimen/_10sdp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_15sdp">
+
+            <com.example.aldokana.MyTextViewCairo
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/red"
+                android:id="@+id/number"/>
+
+            <com.example.aldokana.MyTextViewCairo
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/items"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/red"
+                android:layout_toEndOf="@id/number"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linear_color"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:background="@drawable/shape_rounded_red"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_20sdp">
+
+                <com.example.aldokana.MyTextViewCairo
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10ssp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:id="@+id/status_txt"/>
+
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_15sdp">
+
+            <com.example.aldokana.MyTextViewCairo
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/order_number"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"/>
+
+            <com.example.aldokana.MyTextViewCairo
+                android:id="@+id/order_number"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="525626"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12ssp"/>
+
+            <com.example.aldokana.MyTextViewCairo
+                android:id="@+id/money"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="525626"
+                android:textColor="@color/mooov"
+                android:textSize="@dimen/_12ssp"/>
+
+            <com.example.aldokana.MyTextViewCairo
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/egp"
+                android:textColor="@color/mooov"
+                android:textSize="@dimen/_12ssp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_15sdp">
+
+            <com.example.aldokana.MyTextViewCairo
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextHint"
+                android:id="@+id/date_txt"
+                android:textSize="@dimen/_12ssp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/delete_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/delete"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_25sdp"/>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

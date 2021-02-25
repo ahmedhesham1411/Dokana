@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_125sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:id="@+id/item_click">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/card_img"
+            android:scaleType="fitXY"
+            app:riv_corner_radius="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:src="@drawable/imgtesttt"
+            android:layout_height="match_parent"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="start|bottom"
+            android:layout_marginStart="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_15sdp">
+
+            <com.example.aldokana.MyTextViewCairo
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_15ssp"
+                android:textColor="@color/white"
+                android:id="@+id/title"/>
+
+            <com.example.aldokana.MyTextViewCairo
+                android:id="@+id/disc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/white"
+                android:layout_marginTop="@dimen/_5sdp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
+</layout>

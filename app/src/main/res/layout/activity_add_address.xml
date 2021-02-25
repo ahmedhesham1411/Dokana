@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="addAddressVM"
+            type="com.example.aldokana.viewModels.AddAddressViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:orientation="horizontal"
+            >
+
+            <FrameLayout
+                android:layout_weight="1"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_15sdp">
+
+            </FrameLayout>
+            <com.example.aldokana.MyTextViewCairo
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/add_new_address"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="@dimen/_14ssp"
+                android:textColor="@color/black"/>
+
+            <FrameLayout
+                android:id="@+id/back"
+                android:layout_weight="1"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_centerVertical="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:src="@drawable/ic_baseline_keyboard_backspace_24"
+                    android:rotation="180"/>
+
+
+            </FrameLayout>
+
+
+        </RelativeLayout>
+    <androidx.core.widget.NestedScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/_15sdp">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/_15sdp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_first_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@drawable/shape_rounded_grey"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:orientation="horizontal">
+
+            <com.example.aldokana.MyEditTextBold
+                android:textAlignment="viewStart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@android:color/transparent"
+                android:paddingStart="@dimen/_10sdp"
+                android:id="@+id/first_name_txt"
+                android:textSize="@dimen/_14ssp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:hint="@string/firstname"
+                android:text="@={addAddressVM.firstName}"
+                android:inputType="text"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_second_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@drawable/shape_rounded_grey"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:orientation="horizontal">
+
+
+            <com.example.aldokana.MyEditTextBold
+                android:textAlignment="viewStart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@android:color/transparent"
+                android:paddingStart="@dimen/_10sdp"
+                android:id="@+id/second_name_txt"
+                android:textSize="@dimen/_14ssp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:hint="@string/secondname"
+                android:inputType="text"
+                android:text="@={addAddressVM.lastName}"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <RelativeLayout
+            android:id="@+id/area_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@drawable/shape_rounded_grey"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_25sdp">
+
+            <Spinner
+                android:background="@null"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/area_spinner"
+                android:textAlignment="viewStart"
+                android:theme="@style/SpinnerTheme"
+                style="@style/SpinnerTheme"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="RtlCompat" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/spinner_arrow"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/spiinerarrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/city_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@drawable/shape_rounded_grey"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_25sdp">
+
+            <Spinner
+                style="@style/SpinnerTheme"
+                android:background="@null"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/city_spinner"
+                android:textAlignment="viewStart"
+                android:theme="@style/SpinnerTheme"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="RtlCompat" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/spiinerarrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_street"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@drawable/shape_rounded_grey"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:orientation="horizontal">
+
+            <com.example.aldokana.MyEditTextBold
+                android:textAlignment="viewStart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@android:color/transparent"
+                android:paddingStart="@dimen/_10sdp"
+                android:id="@+id/street_txt"
+                android:textSize="@dimen/_14ssp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:hint="@string/street"
+                android:inputType="text"
+                android:text="@={addAddressVM.street}"
+                />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_tower"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@drawable/shape_rounded_grey"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:orientation="horizontal">
+
+            <com.example.aldokana.MyEditTextBold
+                android:text="@={addAddressVM.tower}"
+                android:textAlignment="viewStart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@android:color/transparent"
+                android:paddingStart="@dimen/_10sdp"
+                android:id="@+id/tower_txt"
+                android:textSize="@dimen/_14ssp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:hint="@string/tower"
+                android:inputType="text"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_phone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@drawable/shape_rounded_grey"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:orientation="horizontal">
+
+            <com.example.aldokana.MyEditTextBold
+                android:text="@={addAddressVM.phone}"
+                android:textAlignment="viewStart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:background="@android:color/transparent"
+                android:paddingStart="@dimen/_10sdp"
+                android:id="@+id/phone_txt"
+                android:textSize="@dimen/_14ssp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:hint="@string/phoe_num"
+                android:inputType="phone"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.example.aldokana.MyTextViewCairo
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:id="@+id/add_address_click"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/shape_rounded_g"
+            android:text="@string/add"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14ssp"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

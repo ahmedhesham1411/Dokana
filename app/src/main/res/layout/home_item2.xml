@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_95sdp"
+        android:layout_height="@dimen/_170sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        >
+
+        <FrameLayout
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_110sdp"
+                android:id="@+id/item_click"/>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:scaleType="fitXY"
+                android:id="@+id/card_img"
+                app:riv_corner_radius="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_105sdp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/dokanaimg"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_7sdp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:visibility="visible"
+                android:id="@+id/sale_img"
+                android:scaleType="fitXY"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:src="@drawable/saleimg"
+                android:layout_gravity="start"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_7sdp"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_75sdp"
+                android:background="@drawable/shape_rounded_half_black"
+                android:orientation="vertical"
+                android:layout_gravity="start|bottom"
+                android:gravity="center_horizontal">
+
+                <com.example.aldokana.MyTextViewCairo
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_10sdp"
+                    android:textSize="@dimen/_6ssp"
+                    android:textColor="@color/white"
+                    android:maxLines="1"
+                    android:id="@+id/title"/>
+
+                <com.example.aldokana.MyTextViewCairo
+                    android:maxLines="1"
+                    android:id="@+id/discr"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_12sdp"
+                    android:textSize="@dimen/_5ssp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"/>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_10sdp"
+                    android:orientation="horizontal">
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_9sdp"
+                        android:textSize="@dimen/_5ssp"
+                        android:textColor="@color/white"
+                        android:id="@+id/price"/>
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_marginStart="@dimen/_3sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_9sdp"
+                        android:textSize="@dimen/_5ssp"
+                        android:textColor="@color/white"
+                        android:text="@string/egp"
+                        />
+
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/dotted"
+                    >
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/price_sale_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_10sdp"
+                        android:orientation="horizontal">
+
+
+
+                        <com.example.aldokana.MyTextViewCairo
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_9sdp"
+                            android:textSize="@dimen/_5ssp"
+                            android:textColor="#7B7B7B"
+                            android:id="@+id/price_before_sale"
+                            android:layout_gravity="center_horizontal"/>
+
+                        <com.example.aldokana.MyTextViewCairo
+                            android:layout_marginStart="@dimen/_3sdp"
+                            android:id="@+id/text_sale_currency"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_9sdp"
+                            android:textSize="@dimen/_5ssp"
+                            android:textColor="#7B7B7B"
+                            android:text="@string/egp"
+                            android:layout_gravity="center_horizontal"/>
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </FrameLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_plus_minus"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:background="@drawable/shape_border_home"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_marginEnd="@dimen/_7sdp"
+                    android:layout_marginBottom="@dimen/_7sdp"
+                    android:layout_marginTop="@dimen/_3sdp">
+
+                    <RelativeLayout
+                        android:id="@+id/plus_lay"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_5sdp"
+                            android:layout_height="@dimen/_5sdp"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/plus"/>
+
+                    </RelativeLayout>
+
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:src="@drawable/inactivecircle"/>
+
+                        <com.example.aldokana.MyTextViewCairo
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="@dimen/_6ssp"
+                            android:textColor="@color/grey"
+                            android:text="0"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:id="@+id/counter_txt"/>
+
+                    </FrameLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/minus_lay"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        >
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_5sdp"
+                            android:layout_height="@dimen/_5sdp"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/minus"/>
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </FrameLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</layout>

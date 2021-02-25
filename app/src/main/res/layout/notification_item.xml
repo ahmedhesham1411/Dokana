@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"
+        android:background="@drawable/shape_rounded_white"
+        android:layout_margin="@dimen/_10sdp"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/circle_colored"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:background="@drawable/shape_circle_red"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_toEndOf="@id/circle_colored"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_40sdp">
+
+            <com.example.aldokana.MyTextViewCairo
+                android:id="@+id/noti_title"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textSize="@dimen/_12ssp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/black"
+                android:text="testtttttttttttt"
+                android:layout_gravity="center"
+                android:gravity="center"
+                tools:ignore="RtlCompat" />
+
+            <com.example.aldokana.MyTextViewCairo
+                android:id="@+id/noti_desc"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textSize="@dimen/_12ssp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorTextHint"
+                android:text="testtttttttttttt"
+                tools:ignore="RtlCompat" />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:src="@drawable/delete"/>
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:id="@+id/storage_lin"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        >
+
+        <com.example.aldokana.MyTextViewCairo
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:id="@+id/storage_txt"
+            android:gravity="center"
+            android:textSize="@dimen/_18ssp"
+            android:text="128"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:visibility="gone"
+            android:id="@+id/underline_storage_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/dotted2"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"/>
+
+    </RelativeLayout>
+</layout>

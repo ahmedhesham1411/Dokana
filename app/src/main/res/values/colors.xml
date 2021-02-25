@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#DE293C</color>
+    <color name="colorAccent">#DE293C</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="colorTextHint">#748A9D</color>
+<!--
+    <color name="colorTextHint">#989898</color>
+-->
+    <color name="colorDarkGrey">#F0F0F0</color>
+    <color name="colortext2">#748A9D</color>
+    <color name="mooov">#AC186E</color>
+    <color name="background">#F0F4F8</color>
+    <color name="red">#DE293C</color>
+    <color name="grey">#748A9D</color>
+    <color name="yellow">#FFCC00</color>
+    <color name="green">#39B54A</color>
+    <color name="blue">#1466C6</color>
+
+</resources>

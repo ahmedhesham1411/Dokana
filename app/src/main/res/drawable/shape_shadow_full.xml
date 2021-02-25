@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:innerRadius="0dp"
+    android:shape="ring"
+    android:thicknessRatio="2"
+    android:useLevel="false" >
+    <solid android:color="@color/colorTextHint" />
+
+    <stroke
+        android:width="2dp"
+        android:color="@color/colorTextHint" />
+</shape>
+
+<!--
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/colorTextHint"/>
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+
+    <item
+        android:left="1.5dp"
+        android:right="1.5dp"
+        android:top="1dp"
+        android:bottom="2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/colorTextHint"/>
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+</layer-list>-->

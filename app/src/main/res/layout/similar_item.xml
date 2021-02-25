@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_125sdp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        >
+
+        <FrameLayout
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_110sdp"
+                android:id="@+id/item_click"/>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/card_img"
+                app:riv_corner_radius="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_120sdp"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:src="@drawable/dokanaimg"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_5sdp"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/shape_rounded_half_black"
+                android:orientation="vertical"
+                android:layout_gravity="start|bottom"
+                android:gravity="center">
+
+                <com.example.aldokana.MyTextViewCairo
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_7sdp"
+                    android:textSize="@dimen/_5ssp"
+                    android:textColor="@color/white"
+                    android:text="OnePlus "
+                    android:id="@+id/title"/>
+
+                <com.example.aldokana.MyTextViewCairo
+                    android:id="@+id/discr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_12sdp"
+                    android:textSize="@dimen/_5ssp"
+                    android:textColor="@color/white"
+                    android:text="OnePlus 6 Dual Sim, 128GB, 4G LTE Black"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"/>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_8sdp"
+                    android:orientation="horizontal">
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_7sdp"
+                        android:textSize="@dimen/_5ssp"
+                        android:textColor="@color/white"
+                        android:text="@string/egp"
+                        />
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_marginStart="@dimen/_3sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_7sdp"
+                        android:textSize="@dimen/_5ssp"
+                        android:textColor="@color/white"
+                        android:text="13,999"
+                        android:id="@+id/price"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/dotted"
+                    >
+
+                </FrameLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </FrameLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</layout>

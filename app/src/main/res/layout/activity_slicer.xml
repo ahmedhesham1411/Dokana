@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="sliderVM"
+            type="com.example.aldokana.viewModels.ModelTest" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activities.Slider"
+        android:background="@color/colorPrimaryDark">
+
+    <FrameLayout
+        android:id="@+id/frame_slider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/_100sdp"
+        android:background="@drawable/shape_rounded">
+
+        <com.smarteist.autoimageslider.SliderView
+            android:id="@+id/imageSliderHome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:sliderAnimationDuration="600"
+            app:sliderAutoCycleEnabled="false"
+            app:sliderCircularHandlerEnabled="false"
+            app:sliderIndicatorAnimationDuration="600"
+            app:sliderIndicatorOrientation="horizontal"
+            app:sliderIndicatorSelectedColor="@color/black"
+            app:sliderIndicatorUnselectedColor="@color/colorPrimaryDark"
+            app:sliderScrollTimeInSec="3"
+            android:scrollbars="horizontal"
+            app:sliderStartAutoCycle="false"/>
+
+    </FrameLayout>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/skip"
+        android:visibility="gone"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:layout_centerHorizontal="true">
+
+        <com.example.aldokana.MyTextViewCairo
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/skip"
+            android:gravity="center"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/white"/>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:visibility="gone"
+        android:id="@+id/startaa"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_40sdp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_rounded2">
+
+        <com.example.aldokana.MyTextViewCairo
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/start"
+            android:gravity="center"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/colorPrimaryDark"/>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>
+</layout>

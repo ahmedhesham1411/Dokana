@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="cartVM"
+            type="com.example.aldokana.viewModels.CartViewModel" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activities.CartActivity"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/frame_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"
+            android:background="@drawable/shape_rounded22"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingBottom="@dimen/_15sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_15sdp">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:orientation="horizontal"
+                    android:id="@+id/remove_all"
+                    android:layout_weight="1"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_20sdp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/removecolored"
+                        />
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/remove_all"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_centerInParent="true">
+
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/cart"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+
+                    <FrameLayout
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_18sdp"
+                            android:layout_height="@dimen/_18sdp"
+                            android:src="@drawable/shape_circle_red"/>
+
+                        <com.example.aldokana.MyTextViewCairo
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textSize="@dimen/_10ssp"
+                            android:textColor="@color/white"
+                            android:text="@{cartVM.basketCounter}"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:id="@+id/counter_txt"/>
+
+                    </FrameLayout>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <FrameLayout
+                    android:id="@+id/back"
+                    android:layout_weight="1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_centerVertical="true">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:src="@drawable/ic_baseline_keyboard_backspace_24"
+                        android:rotation="180"/>
+
+
+                </FrameLayout>
+
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.core.widget.NestedScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:paddingBottom="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_15sdp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:paddingBottom="@dimen/_15sdp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cart_items_recycler"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"/>
+
+        <com.example.aldokana.MyTextViewCairo
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Deliveryinformation"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/black"/>
+
+        <RelativeLayout
+            android:id="@+id/choose_address"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_75sdp"
+            android:background="@drawable/shapeeee"
+            android:layout_margin="@dimen/_10sdp"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/circle_colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/location"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linear_address"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_toEndOf="@id/circle_colored"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_toStartOf="@+id/delete"
+                android:gravity="center_vertical">
+
+                <com.example.aldokana.MyTextViewCairo
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:id="@+id/noti_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textSize="@dimen/_14ssp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:text="testtttttttttttt"
+                    android:layout_gravity="center"
+                    tools:ignore="RtlCompat"
+                    />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.example.aldokana.MyTextViewCairo
+                            android:id="@+id/address_name"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:textSize="@dimen/_12ssp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorTextHint"
+                            android:text="احمد"
+                            tools:ignore="RtlCompat" />
+
+                        <com.example.aldokana.MyTextViewCairo
+                            android:layout_weight="1"
+                            android:id="@+id/address_mobile"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:textSize="@dimen/_12ssp"
+                            android:textAlignment="viewStart"
+                            android:textColor="@color/colorTextHint"
+                            android:text="00000000000"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            tools:ignore="RtlCompat" />
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <com.example.aldokana.MyTextViewCairo
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/choose_address"
+                android:textSize="@dimen/_16ssp"
+                android:id="@+id/choose_address_txt"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:visibility="visible"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:src="@drawable/ic_baseline_navigate_next_24"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@drawable/shape_border222"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp">
+
+            <com.example.aldokana.MyTextViewCairo
+                android:layout_alignParentEnd="true"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_rounded_ggg"
+                android:text="@string/addcoupon2"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_8ssp"
+                android:id="@+id/add_coupon_txt"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/couponimg2"
+                android:layout_toStartOf="@+id/add_coupon_txt"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_centerVertical="true"
+                android:id="@+id/coupon_img"/>
+
+            <com.example.aldokana.MyEditTextBold
+                android:textAlignment="viewStart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toStartOf="@+id/coupon_img"
+                android:background="@android:color/transparent"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:id="@+id/edit_coupon"
+                android:hint="@string/coupon2"
+                android:textColor="@color/colorTextHint"
+                android:paddingStart="@dimen/_10sdp"
+                android:textSize="@dimen/_12ssp"/>
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/shadow"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp">
+
+                <com.example.aldokana.MyTextViewCairo
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/products_cost"
+                    android:textColor="@color/colorTextHint"
+                    android:textSize="@dimen/_12ssp"/>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:gravity="end"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_10sdp">
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_width="@dimen/_60sdp"
+                        android:maxLines="1"
+                        android:layout_height="wrap_content"
+                        android:text="@={cartVM.productsCost}"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/colorTextHint"
+                        android:textSize="@dimen/_10ssp"/>
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:maxLines="1"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/egp"
+                        android:textColor="@color/colorTextHint"
+                        android:textSize="@dimen/_9ssp"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp">
+
+                <com.example.aldokana.MyTextViewCairo
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/deliveryfee"
+                    android:textColor="@color/colorTextHint"
+                    android:textSize="@dimen/_12ssp"/>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:gravity="end"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_10sdp">
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:maxLines="1"
+                        android:id="@+id/aa11"
+                        android:visibility="gone"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/choose_address"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/colorTextHint"
+                        android:textSize="@dimen/_10ssp"/>
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:maxLines="1"
+                        android:id="@+id/aa2"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="wrap_content"
+                        android:text="@={cartVM.fees}"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/colorTextHint"
+                        android:textSize="@dimen/_10ssp"/>
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:maxLines="1"
+                        android:id="@+id/aa22"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/egp"
+                        android:textColor="@color/colorTextHint"
+                        android:textSize="@dimen/_9ssp"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp">
+
+                <com.example.aldokana.MyTextViewCairo
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/discount"
+                    android:textColor="@color/colorTextHint"
+                    android:textSize="@dimen/_12ssp"/>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:gravity="end"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_10sdp">
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/colorTextHint"
+                        android:textSize="@dimen/_10ssp"/>
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_marginStart="@dimen/_3sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@={cartVM.discount}"
+                        android:maxLines="1"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/colorTextHint"
+                        android:textSize="@dimen/_10ssp"/>
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/egp"
+                        android:maxLines="1"
+                        android:textColor="@color/colorTextHint"
+                        android:textSize="@dimen/_9ssp"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/colorTextHint"/>
+
+            <RelativeLayout
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp">
+
+                <com.example.aldokana.MyTextViewCairo
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Total"
+                    android:textColor="@color/colorTextHint"
+                    android:textSize="@dimen/_12ssp"/>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:gravity="end"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_10sdp">
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:maxLines="1"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="wrap_content"
+                        android:text="@={cartVM.totalCostFinal}"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/colorTextHint"
+                        android:textSize="@dimen/_10ssp"/>
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:maxLines="1"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/egp"
+                        android:textColor="@color/colorTextHint"
+                        android:textSize="@dimen/_9ssp"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.example.aldokana.MyTextViewCairo
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@drawable/shadow"
+            android:text="@string/Totalaaa"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12ssp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/layout_visa"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/visa"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:onClick="@{()->cartVM.chooseCardPaymentMethod(1)}"
+                android:id="@+id/layout_cash"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/cash"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/layout_visa2"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/visa"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:onClick="@{()->cartVM.chooseCardPaymentMethod(2)}"
+                android:id="@+id/layout_pay"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shadow">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/pay"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <RelativeLayout
+            android:id="@+id/lay_card_num"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/shadow">
+
+            <com.example.aldokana.MyEditTextBold
+                android:id="@+id/card_num_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:layout_toStartOf="@+id/img_credit"
+                android:hint="@string/cardnumber"
+                android:textAlignment="viewStart"
+                android:textSize="@dimen/_10ssp"
+                android:paddingStart="@dimen/_10sdp"
+                android:textColor="@color/colorTextHint"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="match_parent"
+                android:id="@+id/img_credit"
+                android:src="@drawable/cash"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp">
+
+            <com.example.aldokana.MyEditTextBold
+                android:layout_weight="1"
+                android:id="@+id/date_edt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shadow"
+                android:hint="@string/Expirydate"
+                android:textAlignment="viewStart"
+                android:textSize="@dimen/_10ssp"
+                android:paddingStart="@dimen/_10sdp"
+                android:textColor="@color/colorTextHint"
+                android:layout_marginEnd="@dimen/_10sdp"/>
+
+            <com.example.aldokana.MyEditTextBold
+                android:id="@+id/cvc_edt"
+                android:layout_weight="2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shadow"
+                android:hint="@string/cvcnumber"
+                android:textAlignment="viewStart"
+                android:textSize="@dimen/_10ssp"
+                android:paddingStart="@dimen/_10sdp"
+                android:textColor="@color/colorTextHint"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/shadow">
+
+        <com.example.aldokana.MyEditTextBold
+            android:id="@+id/card_name_edt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:hint="@string/cardname"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/_10ssp"
+            android:paddingStart="@dimen/_10sdp"
+            android:textColor="@color/colorTextHint"/>
+        </RelativeLayout>
+
+        <com.example.aldokana.MyTextViewCairo
+            android:id="@+id/make_order"
+            android:text="@string/ordernow"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16ssp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:background="@drawable/shape_rounded_g"
+            android:layout_marginBottom="@dimen/_20sdp"/>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

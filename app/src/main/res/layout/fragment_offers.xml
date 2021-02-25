@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="offersVM"
+            type="com.example.aldokana.viewModels.OffersFragmentViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F0F4F8">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/frame_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_60sdp"
+                    android:background="@drawable/shape_rounded22"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/_15sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_30sdp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/_15sdp">
+
+                        <com.example.aldokana.MyTextViewCairo
+                            android:layout_centerInParent="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="@string/offers"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="@dimen/_14ssp"
+                            android:textColor="@color/black"/>
+
+                        <FrameLayout
+                            android:id="@+id/notifications"
+                            android:layout_weight="1"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="@dimen/_20sdp">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="@dimen/_20sdp"
+                                android:layout_height="@dimen/_20sdp"
+                                android:src="@drawable/bell"
+                                android:layout_marginStart="@dimen/_2sdp"/>
+
+                            <FrameLayout
+                                android:layout_width="@dimen/_12sdp"
+                                android:layout_height="@dimen/_12sdp">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="@dimen/_12sdp"
+                                    android:layout_height="@dimen/_12sdp"
+                                    android:src="@drawable/circ"
+                                    />
+
+                                <com.example.aldokana.MyTextViewCairo
+                                    android:hint="0"
+                                    android:textColorHint="@color/white"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="@={offersVM.notificationsNum}"
+                                    android:textSize="@dimen/_6ssp"
+                                    android:textColor="@color/white"/>
+
+
+                            </FrameLayout>
+
+                        </FrameLayout>
+
+                    </RelativeLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/offers_recycler"
+                    android:layout_marginTop="@dimen/_5sdp"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <RelativeLayout
+                android:id="@+id/go_to_cart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/shape_rounded_red"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_20sdp"
+                   >
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_centerVertical="true"
+
+                        android:id="@+id/cart_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/cart"
+                        android:layout_marginStart="@dimen/_10sdp"/>
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_alignParentBottom="true"
+
+                        android:id="@+id/cart_txt"
+                        android:layout_toEndOf="@+id/cart_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cart"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_10ssp"
+                        android:textColor="@color/white"/>
+
+                    <FrameLayout
+                        android:layout_alignParentBottom="true"
+
+                        android:id="@+id/cart_num"
+                        android:layout_toEndOf="@+id/cart_txt"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_marginStart="@dimen/_5sdp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:src="@drawable/circlewhite"
+                            />
+
+                        <com.example.aldokana.MyTextViewCairo
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@={offersVM.basket_counter}"
+                            android:textSize="@dimen/_8ssp"
+                            android:textColor="@color/black"/>
+
+
+                    </FrameLayout>
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_20sdp"
+                    android:orientation="horizontal"
+                    android:gravity="bottom"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_20sdp">
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@={offersVM.basket_money}"
+                        android:textColor="@color/white"
+                        android:id="@+id/cart_money"
+                        android:textSize="@dimen/_10ssp"/>
+
+                    <com.example.aldokana.MyTextViewCairo
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/egp"
+                        android:textSize="@dimen/_10ssp"
+                        android:textColor="@color/white"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </RelativeLayout>
+        </FrameLayout>
+    </RelativeLayout>
+</layout>
